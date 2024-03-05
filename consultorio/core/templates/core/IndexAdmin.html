@@ -2,56 +2,71 @@
 {% load static %}
 {% block title %}Consultorio Medico San Martin{% endblock %}
 
+
 {% block content %}
 
-<!-- Headers-->
-<header id="header" class="fixed-top">
-  <div class="container d-flex align-items-center">
+          <header id="header" class="fixed-top">
+            <div class="container d-flex align-items-center">
+              <nav id="navbar" class="navbar order-last order-lg-0">
+                <ul class="nav">
+                  <li class="dropdown"><a href="#"><span>Medicos</span> <i class="bi bi-chevron-right"></i></a>
+                    <ul>
+                      <li><a href="{% url "medicos:list" %}">Ver</a></li>
+                      <li><a href="{%url "medicos:create" %}">Cargar</a></li>
+                    </ul>
+                  </li>
+                  <li class="dropdown"><a href="#"><span>Especialidades</span> <i class="bi bi-chevron-right"></i></a>
+                    <ul>
+                      <li><a href="{% url "especialidades:list" %}">Ver</a></li>
+                      <li><a href="{% url "especialidades:create" %}">Cargar</a></li>
+                    </ul>
+                  </li>
+                  <li class="dropdown"><a href="#"><span>Servicios</span> <i class="bi bi-chevron-right"></i></a>
+                    <ul>
+                      <li><a href="{% url "servicios:list" %}">Ver</a></li>
+                      <li><a href="{% url "servicios:create" %}">Cargar</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item"><a class="nav-link scrollto" href="#services">Turnos</a></li>
+                  <li class="nav-item"><a class="nav-link scrollto" href="#doctors">Cargar Estudios</a></li>
+                  {% if not request.user.is_authenticated %}
+                    <li class="nav-item"><a class="nav-link scrollto" href="{% url 'login' %}">Accede</a></li>
+                    <li class="nav-item"><a class="nav-link scrollto" href="{% url 'signup' %}">Registrarse</a></li>
+                  {% else %}
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'logout' %}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        Salir
+                      </a>
+                      <form id="logout-form" method="post" action="{% url 'logout' %}" style="display: none;">
+                        {% csrf_token %}
+                      </form>
+                    </li>
+                  {% endif %}
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+              </nav>
+            </div>
+          </header>
 
-    
 
-    <nav id="navbar" class="navbar order-last order-lg-0">
-      <ul>
-        <li><a class="nav-link scrollto active" href="#hero">Medicos</a></li>
-        <li><a class="nav-link scrollto" href="#about">Especialidades</a></li>
-        <li><a class="nav-link scrollto" href="#services">Turnos</a></li>
-        
-        
-        
-        {% if not request.user.is_authenticated %}
-        <li class="nav-item"><a class="nav-link scrollto" href="{% url 'login' %}" >Accede</a></li>
-        
-        {% else%}
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'logout' %}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-              Salir
-          </a>
-          <form id="logout-form" method="post" action="{% url 'logout' %}" style="display: none;">
-              {% csrf_token %}
-          </form>
-        </li>
-        {% endif %}
-      </ul>     
-      <i class="bi bi-list mobile-nav-toggle"></i>
-    </nav>
 
-    
 
-  </div>
-</header> 
+
+
+
 <!--Bienvenida-->
-<div class="welcome-section">
-  <div class="container mt-5">
-    <div class="row">
-      <div class="col-md-8 offset-md-2 welcome-content ">
-        <h2>Bienvenido al Consultorio Médico San Martín</h2>
-        <p>
-          Gracias por ser parte de nuestro equipo. Aquí puedes administrar y acceder a las funciones administrativas del consultorio.
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
+        <div class="welcome-section">
+          <div class="container mt-5">
+            <div class="row">
+              <div class="col-md-8 offset-md-2 welcome-content ">
+                <h2>Bienvenido al Consultorio Médico San Martín</h2>
+                <p>
+                  Gracias por ser parte de nuestro equipo. Aquí puedes administrar y acceder a las funciones administrativas del consultorio.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
 
 
 

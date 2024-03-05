@@ -1,8 +1,11 @@
 
-body {
+body{
+
   font-family: "Open Sans", sans-serif;
   color: #444444;
 }
+
+
 
 a {
   color: #1977cc;
@@ -862,7 +865,43 @@ section {
     opacity: 0;
   }
 }
+.about .icon-boxes {
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: justify;
+  color: #495057;
+}
 
+.about .icon-boxes h3 {
+  color: #007bff;
+  margin-bottom: 20px;
+}
+
+.about .icon-boxes p {
+  line-height: 1.6;
+}
+
+.about .icon-boxes .card {
+  width: 18rem;
+}
+
+.about .icon-boxes .card-img-top {
+  width: 100%;
+  height: auto;
+  border-radius: 10px 10px 0 0;
+}
+
+.about .icon-boxes .card-body {
+  background-color: #f8f9fa;
+  border-radius: 0 0 10px 10px;
+  padding: 20px;
+}
+
+.about .icon-boxes .card-body h5.card-title {
+  text-align: center;
+}
 /*--------------------------------------------------------------
 # Counts
 --------------------------------------------------------------*/
@@ -1773,3 +1812,4 @@ section {
   font-size: 1.2em; /* ajusta el tamaño de la fuente según tu preferencia */
   line-height: 1.6em;
 }
+

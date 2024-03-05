@@ -2,6 +2,12 @@
 from django.contrib import admin
 from django.urls import path
 from django.urls import include
+from django.conf.urls.static import static
+from django.conf import settings
+from especialidades.urls import Especialidades_patterns
+from medicos.urls import Medico_patterns
+from servicios.urls import Servicios_patterns
+
 
 
 
@@ -15,4 +21,19 @@ urlpatterns = [
      
 # path del Auth
      path('accounts/', include('django.contrib.auth.urls')),
+     path('accounts/', include('registration.urls')),
+
+# path del especialidades
+   path('especialidades/', include(Especialidades_patterns)),
+   
+#path medicos
+     path('medicos/', include(Medico_patterns)),
+     
+# path servicios
+    path('servicios/', include(Servicios_patterns)),
 ]
+
+if settings.DEBUG:
+    from django.conf.urls.static import static
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    
