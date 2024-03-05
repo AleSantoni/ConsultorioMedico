@@ -5,36 +5,13 @@ from especialidades.models import Especialidades
 
 from .models import Medico
 
-''' 
-class MedicosForm(forms.ModelForm):
-    
 
-     def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.fields['especialidad'].widget = forms.SelectMultiple(choices=self.get_especialidades_choices())
-
-     def get_especialidades_choices(self):
-        return [(especialidad.id, especialidad.nombre) for especialidad in Especialidades.objects.all()]
-
-     class Meta:
-        model = Medico
-        fields = ['nombre', 'apellido', 'matricula', 'email', 'telefono', 'img', 'especialidad']
-        widgets = {
-            'nombre': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Nombre'}),
-            'apellido': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Apellido'}),
-            'matricula': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Matricula'}),
-            'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Email'}),
-            'telefono': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Telefono'}),
-            'img': forms.ClearableFileInput(attrs={'class': 'form-control'}),
-            'especialidad': forms.SelectMultiple(attrs={'class': 'form-control'}),
-        }
-        '''
-        
 
 class MedicosForm(forms.ModelForm):
     class Meta:
         model = Medico
         fields = ['nombre', 'apellido', 'matricula', 'email', 'telefono', 'img', 'especialidad']
+        
         widgets = {
             'nombre': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Nombre'}),
             'apellido': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Apellido'}),
