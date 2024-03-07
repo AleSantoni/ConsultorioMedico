@@ -12,7 +12,7 @@ from django.urls import reverse_lazy
 class MedicoListView(ListView):
     model = Medico
     template_name = 'medicos/medicos.html' 
-    context_object_name = 'medicos'
+    context_object_name = 'medicos' 
 
 class MedicoDetailView(DeleteView):
      model=Medico
