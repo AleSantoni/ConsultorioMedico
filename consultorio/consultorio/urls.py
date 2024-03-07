@@ -7,6 +7,10 @@ from django.conf import settings
 from especialidades.urls import Especialidades_patterns
 from medicos.urls import Medico_patterns
 from servicios.urls import Servicios_patterns
+from paciente.urls import Paciente_patterns
+from obrasocial.urls import ObraSocial_patterns
+
+
 
 
 
@@ -31,7 +35,15 @@ urlpatterns = [
      
 # path servicios
     path('servicios/', include(Servicios_patterns)),
+    
+# path Pacientes
+    path('pacientes/', include(Paciente_patterns)),
+    
+# path ObraSocial
+    path('obrasocial/', include(ObraSocial_patterns)),
 ]
+
+
 
 if settings.DEBUG:
     from django.conf.urls.static import static

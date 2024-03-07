@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'especialidades.apps.GestorEspecialidadesConfig',
     'servicios',
     'medicos.apps.GestorMedicosConfig',
+    'paciente.apps.PacienteConfig',
+    'obrasocial.apps.ObrasocialConfig',
 ]
 
 MIDDLEWARE = [
