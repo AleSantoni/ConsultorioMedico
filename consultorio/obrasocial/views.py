@@ -31,7 +31,7 @@ class ObraSocialDeleteView(DeleteView):
 class ObraSocialCreateView(CreateView):
     model=ObraSocial
     fields=['nombre']
-    success_url = reverse_lazy('obrasocial:find')
+    success_url = reverse_lazy('obrasocial:list')
    
 
     def form_valid(self, form):
